@@ -1,0 +1,18 @@
+# 依赖（pnpm install 生成，不进仓库）
+node_modules/
+
+# 渲染产物
+cache/
+*.log
+
+# 安装脚本改动前的备份
+backups/
+
+# 本机配置：含真实安装路径 / QQ 号，不进仓库（模板见 toolkit.config.example.json）
+toolkit.config.json
+
+# 暂停脚本的本机自定义动作（模板见 qq-launcher/pause-custom.example.ps1）
+qq-launcher/pause-custom.ps1
+
+# 暂停脚本记住的 PCL 路径（本机状态）
+qq-launcher/pcl-path.txt

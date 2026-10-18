@@ -1,0 +1,35 @@
+{
+  "_readme": [
+    "这是 dsh-qq-toolkit 的配置模板。它是个「示例」，不能直接拿来用。",
+    "用法：复制成同目录的 toolkit.config.json，再把下面三项改成你自己的 DSH 安装位置。",
+    "    copy toolkit.config.example.json toolkit.config.json",
+    "（toolkit.config.json 已在 .gitignore 里，不会被提交，所以你的本机路径不会跟着仓库走。）",
+    "",
+    "路径支持 %USERPROFILE% / %APPDATA% / %LOCALAPPDATA% / %ProgramFiles% 等环境变量占位，",
+    "所以同一份配置在任意用户名下都能直接用。",
+    "",
+    "⚠️ dshExe / dshNode / pnpmCli 三项都指向「你自己的 DSH 安装目录」，必须改。",
+    "    下面填的是最常见的安装位置，如果你的 DSH 装在别处（比如 D 盘的绿色版），按同样结构改。",
+    "    填错或留空时脚本会自动探测常见位置；探测不到会明确报错，并说清该改哪一项。"
+  ],
+
+  "bridgeDir": "%USERPROFILE%\\.dsh\\qq-bridge",
+  "dshScriptsDir": "%USERPROFILE%\\.dsh\\scripts",
+  "snowlumaDir": "%USERPROFILE%\\.dsh\\snowluma\\app",
+  "dshProfileDir": "%USERPROFILE%\\.dsh\\profiles\\desktop",
+
+  "_note_dshInstall": "以下三项 = 你的 DSH 安装目录，以及它自带的 node / pnpm。",
+  "_note_dshNode": "DSH 0.2.1 起在 resources\\runtime\\primary-runtime\\dependencies\\node\\bin\\node.exe；0.2.0 及更早在 resources\\runtime\\node\\bin\\node.exe。",
+  "_note_pnpmCli": "同理，pnpm 在 resources\\runtime\\primary-runtime\\dependencies\\pnpm\\bin\\pnpm.cjs（旧版在 resources\\runtime\\pnpm\\bin\\pnpm.cjs）。",
+  "dshExe": "%LOCALAPPDATA%\\Programs\\DeepSeek Harness\\DeepSeek Harness.exe",
+  "dshNode": "%LOCALAPPDATA%\\Programs\\DeepSeek Harness\\resources\\runtime\\primary-runtime\\dependencies\\node\\bin\\node.exe",
+  "pnpmCli": "%LOCALAPPDATA%\\Programs\\DeepSeek Harness\\resources\\runtime\\primary-runtime\\dependencies\\pnpm\\bin\\pnpm.cjs",
+
+  "qqExe": "%ProgramFiles%\\Tencent\\QQNT\\QQ.exe",
+  "pclPath": "",
+
+  "ownerQQ": null,
+  "_note_ownerQQ": "管理员 QQ：正常应在桥接控制台里设置；这里留空即可，只有 remap-session.ps1 会用它做兜底。",
+
+  "_note_edge": "Edge/Chrome 路径不必配：render.mjs 内置常见候选列表，找不到时改那里的 BROWSER_CANDIDATES。"
+}
