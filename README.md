@@ -142,10 +142,22 @@ example 里给了三个例子（调程序内存优化 / 关浏览器 / 关 DSH�
 
 ### 给 Agent 的说明
 
-- 入口是 `deploy-launcher.ps1`，它把 `qq-launcher\*.ps1` 和 `toolkit.config.json` 复制到
-  `%USERPROFILE%\.dsh\scripts\`，脚本里按绝对路径调用那边。
-- 改路径只动 `toolkit.config.json`，**不要改 `_config.ps1` 的探测逻辑**。
-- 用户想要额外动作时，让他改 `qq-launcher/pause-custom.ps1`（或从 example 复制），
-  **不要把这些动作直接写进 `pause-qq-ai.ps1`** —— 那是要发给别人的通用部分。
-- 部署后用 `-Check` 验证 MD5 一致，再让用户双击桌面入口。
-- 不要用管理员权限，也不要手动改 `%USERPROFILE%\.dsh\scripts\` 里的副本（会被下次部署覆盖）。
+> 以下是给 AI 的执行指令。
+
+**部署**
+
+1. 入口 `deploy-launcher.ps1`。它把 `qq-launcher\*.ps1` 和 `toolkit.config.json` 复制到 `%USERPROFILE%\.dsh\scripts\`，脚本按绝对路径调那边。
+2. 改路径只动 `toolkit.config.json`，不要改 `_config.ps1` 的探测逻辑。
+3. `-Check` 只比对不复制；正常部署会自己做 MD5 校验。
+4. 不要用管理员权限；不要手动改 `%USERPROFILE%\.dsh\scripts\` 里的副本（会被下次部署覆盖）。
+
+**部署后**
+
+5. 报告结果：部署到哪、MD5 是否全部一致。
+6. 告诉用户怎么测：双击「启动QQ AI」看 DSH / QQ / SnowLuma / OneBot 依次就绪，最后打印 `控制台: http://127.0.0.1:3100` 且浏览器能打开；再双击「暂停QQ AI」确认能停掉。
+7. 停下来问用户谁来测 —— 原话：「你自己试，还是要我代你搞？」
+8. 用户说「你来搞吧」再动手；说「我自己来」就到此为止 —— 启动和暂停会动真实进程，该由用户决定谁来做，不要默认代劳。
+
+**用户想要额外动作时**
+
+9. 让他改 `qq-launcher/pause-custom.ps1`（或从 `pause-custom.example.ps1` 复制）。不要把这些动作写进 `pause-qq-ai.ps1` —— 那是要发给别人的通用部分。
