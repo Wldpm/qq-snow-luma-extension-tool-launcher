@@ -1,4 +1,4 @@
-<#
+﻿<#
   pause-custom.example.ps1 —— 「暂停 QQ AI」的自定义动作
 
   怎么用：

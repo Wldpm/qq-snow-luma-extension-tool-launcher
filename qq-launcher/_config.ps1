@@ -1,4 +1,4 @@
-<#
+﻿<#
   qq-launcher · 公共配置读取模块
 
   由 start-qq-ai.ps1 / pause-qq-ai.ps1 / remap-session.ps1 点源引用：

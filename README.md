@@ -71,6 +71,16 @@ DSH 正在运行时脚本会按进程路径自己找，多数情况不用改。�
 > 把 `toolkit.config.json` 准备好（复制模板 + 改好路径），然后运行 `deploy-launcher.ps1`。
 > 装完告诉我怎么启动、怎么暂停、出问题先看哪里。
 
+### 装到哪
+
+| | 位置 |
+|---|---|
+| 源码 | 这个仓库本身，放哪都行 |
+| **运行位置** | `%USERPROFILE%\.dsh\scripts\`（桌面快捷方式调的就是那里） |
+
+`deploy-launcher.ps1` 会把 `qq-launcher\*.ps1` 和 `toolkit.config.json` 复制到运行位置。
+桌面上的 `.cmd` / `.url` 是入口壳，不部署。
+
 ### 怎么算装好了
 
 按顺序确认，三条全对上才算成功：
